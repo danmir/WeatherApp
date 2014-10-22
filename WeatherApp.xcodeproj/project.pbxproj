@@ -17,6 +17,8 @@
 		93420D5E19EEB3B1009C03B0 /* Time.m in Sources */ = {isa = PBXBuildFile; fileRef = 93420D5D19EEB3B1009C03B0 /* Time.m */; };
 		93420D6119EEBA0A009C03B0 /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 93420D6019EEBA0A009C03B0 /* Forecast.m */; };
 		93420D6419EEBC52009C03B0 /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = 93420D6319EEBC52009C03B0 /* Weather.m */; };
+		9372BD9019F7E48600EDD7BA /* WeatherFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 9372BD8F19F7E48600EDD7BA /* WeatherFile.m */; };
+		9372BD9319F7E5B500EDD7BA /* Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 9372BD9219F7E5B500EDD7BA /* Client.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,10 @@
 		93420D6019EEBA0A009C03B0 /* Forecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forecast.m; sourceTree = "<group>"; };
 		93420D6219EEBC52009C03B0 /* Weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weather.h; sourceTree = "<group>"; };
 		93420D6319EEBC52009C03B0 /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = "<group>"; };
+		9372BD8E19F7E48600EDD7BA /* WeatherFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherFile.h; sourceTree = "<group>"; };
+		9372BD8F19F7E48600EDD7BA /* WeatherFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherFile.m; sourceTree = "<group>"; };
+		9372BD9119F7E5B400EDD7BA /* Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Client.h; sourceTree = "<group>"; };
+		9372BD9219F7E5B500EDD7BA /* Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Client.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +106,10 @@
 				93420D6019EEBA0A009C03B0 /* Forecast.m */,
 				93420D6219EEBC52009C03B0 /* Weather.h */,
 				93420D6319EEBC52009C03B0 /* Weather.m */,
+				9372BD9119F7E5B400EDD7BA /* Client.h */,
+				9372BD9219F7E5B500EDD7BA /* Client.m */,
+				9372BD8E19F7E48600EDD7BA /* WeatherFile.h */,
+				9372BD8F19F7E48600EDD7BA /* WeatherFile.m */,
 				93420D0E19EEB1F7009C03B0 /* Main.storyboard */,
 				93420D1119EEB1F7009C03B0 /* Images.xcassets */,
 				93420D1319EEB1F7009C03B0 /* LaunchScreen.xib */,
@@ -236,6 +246,8 @@
 			files = (
 				93420D6419EEBC52009C03B0 /* Weather.m in Sources */,
 				93420D5E19EEB3B1009C03B0 /* Time.m in Sources */,
+				9372BD9319F7E5B500EDD7BA /* Client.m in Sources */,
+				9372BD9019F7E48600EDD7BA /* WeatherFile.m in Sources */,
 				93420D0D19EEB1F7009C03B0 /* ViewController.m in Sources */,
 				93420D6119EEBA0A009C03B0 /* Forecast.m in Sources */,
 				93420D0A19EEB1F7009C03B0 /* AppDelegate.m in Sources */,
@@ -434,6 +446,7 @@
 				93420D2619EEB1F7009C03B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		93420D2719EEB1F7009C03B0 /* Build configuration list for PBXNativeTarget "WeatherAppTests" */ = {
 			isa = XCConfigurationList;
@@ -442,6 +455,7 @@
 				93420D2919EEB1F7009C03B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

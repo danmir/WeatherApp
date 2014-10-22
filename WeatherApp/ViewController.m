@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "Client.h"
 
 @interface ViewController ()
 
@@ -16,6 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    Client* my_client = [[Client alloc] init];
+    [my_client run];
     // Do any additional setup after loading the view, typically from a nib.
 }
 

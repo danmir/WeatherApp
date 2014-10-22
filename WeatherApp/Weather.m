@@ -33,8 +33,16 @@
     return sample_weather;
 }
 
+-(void) loadFromFile:(WeatherFile*)file target:(id)target selector:(SEL)selector {
+    p_target = target;
+    p_callback = selector;
+    /* do file processing */
+    [target performSelector:selector withObject:file];
+}
+
 -(void) dealloc{
     [super dealloc];
+    // TODO удалить все переменные
 }
 
 

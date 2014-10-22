@@ -8,8 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "Forecast.h"
+#import "WeatherFile.h"
 
-@interface Weather : NSObject
+@interface Weather : NSObject {
+    id p_target;
+    SEL p_callback;
+}
 
 @property(copy) NSString* city;
 @property(copy) NSString* country;
@@ -19,6 +23,9 @@
 
 @property(retain) NSMutableArray* data;
 
-+(Weather*) createSample;
++(Weather*)createSample;
+
+-(void)loadFromFile:(WeatherFile*)file target:(id)target selector:(SEL)selector;
+
 
 @end

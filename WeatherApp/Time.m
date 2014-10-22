@@ -82,6 +82,16 @@
 }
 
 -(void) dealloc{
+    [from release];
+    [to release];
+    [type_of_precipitation release];
+    [count_of_precipitation release];
+    [wind_direction release];
+    [wind_speed release];
+    [temperature release];
+    [pressure release];
+    [humidity release];
+
     [super dealloc];
 }
 
