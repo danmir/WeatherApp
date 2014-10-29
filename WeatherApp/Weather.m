@@ -33,11 +33,17 @@
     return sample_weather;
 }
 
--(void) loadFromFile:(WeatherFile*)file target:(id)target selector:(SEL)selector {
-    p_target = target;
-    p_callback = selector;
+-(void) loadFromFile:(WeatherFile*)file {
     /* do file processing */
-    [target performSelector:selector withObject:file];
+    bool loadSuccsessStumb = YES;
+    if (loadSuccsessStumb)
+        [delegate didWeatherLoadSucceeded];
+    else
+        [delegate didWeatherLoadFailed:[[NSError alloc] init]];
+}
+
+-(void) setDelegate:(id)newDelegate{
+    delegate = newDelegate;
 }
 
 -(void) dealloc{

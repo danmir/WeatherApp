@@ -14,11 +14,18 @@
 @synthesize p_myFile;
 
 -(void)run {
-    self.p_sampleWeather = [[Weather alloc] init];
-    [self.p_sampleWeather loadFromFile:self.p_myFile target:self selector:@selector(loadProcessed:) ];
+    p_sampleWeather = [[Weather alloc] init];
+    [p_sampleWeather setDelegate:self]; // Set that we are delegate
+    [p_sampleWeather loadFromFile:p_myFile]; // Start loading
 }
--(void)loadProcessed:(WeatherFile*)myFile {
-    NSLog(@"file: %@ loaded", myFile);
+
+#pragma mark - Implements delegated functions
+-(void)didWeatherLoadSucceeded {
+    NSLog(@"Все успешно загрузилось");
+}
+
+-(void)didWeatherLoadFailed:(NSError *)error {
+    NSLog(@"Что-то пошло не так");
 }
 
 @end

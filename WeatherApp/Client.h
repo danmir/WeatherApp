@@ -9,12 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "Weather.h"
 
-@interface Client : NSObject
+@interface Client : NSObject<WeatherDelegate>
 
 @property(retain) WeatherFile* p_myFile;
 @property(retain) Weather* p_sampleWeather;
 
 -(void)run;
--(void)loadProcessed:(WeatherFile*)myFile;
 
 @end

@@ -10,9 +10,15 @@
 #import "Forecast.h"
 #import "WeatherFile.h"
 
+@protocol WeatherDelegate <NSObject>
+
+-(void) didWeatherLoadSucceeded;
+-(void) didWeatherLoadFailed:(NSError*)error;
+
+@end
+
 @interface Weather : NSObject {
-    id p_target;
-    SEL p_callback;
+    id delegate;
 }
 
 @property(copy) NSString* city;
@@ -25,7 +31,8 @@
 
 +(Weather*)createSample;
 
--(void)loadFromFile:(WeatherFile*)file target:(id)target selector:(SEL)selector;
+-(void)loadFromFile:(WeatherFile*)file;
+-(void)setDelegate:(id)newDelegate;
 
 
 @end

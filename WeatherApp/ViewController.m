@@ -19,6 +19,7 @@
     [super viewDidLoad];
     Client* my_client = [[Client alloc] init];
     [my_client run];
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
