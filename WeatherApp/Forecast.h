@@ -17,7 +17,7 @@
 @property(retain) NSDate* sunrise;
 @property(retain) NSDate* sunset;
 
-@property(retain) NSMutableArray* data; //Поле вычисляемое по дате
+@property(retain) NSMutableArray* times; // Набор Time
 
 +(Forecast*) createSample1;
 

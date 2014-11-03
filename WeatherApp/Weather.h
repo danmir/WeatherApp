@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "Forecast.h"
-#import "WeatherFile.h"
+
+@class Weather;
 
 @protocol WeatherDelegate <NSObject>
 
--(void) didWeatherLoadSucceeded;
+-(void) didWeatherLoadSucceeded:(Weather*)weather;
 -(void) didWeatherLoadFailed:(NSError*)error;
 
 @end
@@ -27,11 +28,11 @@
 @property(retain) NSNumber* lat;
 @property(retain) NSNumber* lon;
 
-@property(retain) NSMutableArray* data;
+@property(retain) NSArray* forecasts;
 
 +(Weather*)createSample;
 
--(void)loadFromFile:(WeatherFile*)file;
+-(void)loadFromFile:(NSString*)file;
 -(void)setDelegate:(id)newDelegate;
 
 

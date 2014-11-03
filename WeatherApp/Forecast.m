@@ -31,7 +31,7 @@
     sample_forecast.sunrise = [NSDate date];
     sample_forecast.sunset = [NSDate date];
     
-    sample_forecast.data = [[NSMutableArray alloc] initWithObjects:[Time createSample1], [Time createSample2], [Time createSample3], nil];
+    sample_forecast.times = [[NSMutableArray alloc] initWithObjects:[Time createSample1], [Time createSample2], [Time createSample3], nil];
     
     [sample_forecast autorelease];
     

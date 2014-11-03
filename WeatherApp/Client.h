@@ -11,7 +11,7 @@
 
 @interface Client : NSObject<WeatherDelegate>
 
-@property(retain) WeatherFile* p_myFile;
+//@property(retain) WeatherFile* p_myFile;
 @property(retain) Weather* p_sampleWeather;
 
 -(void)run;
