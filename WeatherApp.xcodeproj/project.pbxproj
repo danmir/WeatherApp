@@ -18,6 +18,8 @@
 		93420D6119EEBA0A009C03B0 /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 93420D6019EEBA0A009C03B0 /* Forecast.m */; };
 		93420D6419EEBC52009C03B0 /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = 93420D6319EEBC52009C03B0 /* Weather.m */; };
 		9372BD9319F7E5B500EDD7BA /* Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 9372BD9219F7E5B500EDD7BA /* Client.m */; };
+		93A29F0A1A13AB470033DA22 /* ForecastTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A29F081A13AB470033DA22 /* ForecastTimeViewController.m */; };
+		93A29F0B1A13AB470033DA22 /* ForecastTimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93A29F091A13AB470033DA22 /* ForecastTimeViewController.xib */; };
 		93B0129F1A01313600EF35BE /* forecast.xml in Resources */ = {isa = PBXBuildFile; fileRef = 93B0129E1A01313500EF35BE /* forecast.xml */; };
 		93B012A21A0131A000EF35BE /* ReadXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B012A11A0131A000EF35BE /* ReadXML.m */; };
 /* End PBXBuildFile section */
@@ -54,6 +56,9 @@
 		93420D6319EEBC52009C03B0 /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = "<group>"; };
 		9372BD9119F7E5B400EDD7BA /* Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Client.h; sourceTree = "<group>"; };
 		9372BD9219F7E5B500EDD7BA /* Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Client.m; sourceTree = "<group>"; };
+		93A29F071A13AB470033DA22 /* ForecastTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForecastTimeViewController.h; path = ../ForecastTimeViewController.h; sourceTree = "<group>"; };
+		93A29F081A13AB470033DA22 /* ForecastTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForecastTimeViewController.m; path = ../ForecastTimeViewController.m; sourceTree = "<group>"; };
+		93A29F091A13AB470033DA22 /* ForecastTimeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ForecastTimeViewController.xib; path = ../ForecastTimeViewController.xib; sourceTree = "<group>"; };
 		93B0129E1A01313500EF35BE /* forecast.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = forecast.xml; path = ../../../../../Downloads/forecast.xml; sourceTree = "<group>"; };
 		93B012A01A0131A000EF35BE /* ReadXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadXML.h; sourceTree = "<group>"; };
 		93B012A11A0131A000EF35BE /* ReadXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadXML.m; sourceTree = "<group>"; };
@@ -113,6 +118,9 @@
 				9372BD9219F7E5B500EDD7BA /* Client.m */,
 				93B012A01A0131A000EF35BE /* ReadXML.h */,
 				93B012A11A0131A000EF35BE /* ReadXML.m */,
+				93A29F071A13AB470033DA22 /* ForecastTimeViewController.h */,
+				93A29F081A13AB470033DA22 /* ForecastTimeViewController.m */,
+				93A29F091A13AB470033DA22 /* ForecastTimeViewController.xib */,
 				93420D0E19EEB1F7009C03B0 /* Main.storyboard */,
 				93420D1119EEB1F7009C03B0 /* Images.xcassets */,
 				93420D1319EEB1F7009C03B0 /* LaunchScreen.xib */,
@@ -227,6 +235,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93A29F0B1A13AB470033DA22 /* ForecastTimeViewController.xib in Resources */,
 				93420D1019EEB1F7009C03B0 /* Main.storyboard in Resources */,
 				93420D1519EEB1F7009C03B0 /* LaunchScreen.xib in Resources */,
 				93B0129F1A01313600EF35BE /* forecast.xml in Resources */,
@@ -254,6 +263,7 @@
 				93420D0D19EEB1F7009C03B0 /* ViewController.m in Sources */,
 				93420D6119EEBA0A009C03B0 /* Forecast.m in Sources */,
 				93420D0A19EEB1F7009C03B0 /* AppDelegate.m in Sources */,
+				93A29F0A1A13AB470033DA22 /* ForecastTimeViewController.m in Sources */,
 				93420D0719EEB1F7009C03B0 /* main.m in Sources */,
 				93B012A21A0131A000EF35BE /* ReadXML.m in Sources */,
 			);

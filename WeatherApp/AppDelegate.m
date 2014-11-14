@@ -8,15 +8,62 @@
 
 #import "AppDelegate.h"
 
-@interface AppDelegate ()
+#import "Time.h"
+#import "Forecast.h"
+#import "Weather.h"
+#import "ReadXML.h"
+
+#import "ForecastTimeViewController.h"
+
+@interface AppDelegate () <WeatherDelegate>
+
+-(void) weatherLoaded:(Weather*)weather;
 
 @end
 
 @implementation AppDelegate
+{
+    UIWindow* _window;
+    ForecastTimeViewController* _itemCtrl;
+}
 
+-(void) dealloc {
+    [_itemCtrl release];
+    [_window release];
+    
+    [super dealloc];
+}
+
+-(void) weatherLoaded:(Weather *)weather{
+   // NSLog(@"Weather loaded: %@", [weather description]);
+    NSLog(@"weatherLoaded called");
+}
+
+#pragma mark - Implements delegated functions
+-(void)didWeatherLoadSucceeded:(Weather*)weather {
+    NSLog(@"Все успешно загрузилось in App delegate");
+    NSLog(@"%@", weather);
+    Forecast* forecast = [weather.forecasts objectAtIndex:0];
+    Time* time = [forecast.times objectAtIndex:0];
+    [_itemCtrl setTimeItem:time];
+}
+
+-(void)didWeatherLoadFailed:(NSError *)error {
+    NSLog(@"Что-то пошло не так");
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    _window.backgroundColor = [UIColor whiteColor];
+    
+    _itemCtrl = [[ForecastTimeViewController alloc ] initWithNibName: @"ForecastTimeViewController" bundle:[NSBundle mainBundle]];
+    _window.rootViewController = _itemCtrl;
+    [_window makeKeyAndVisible];
+    
+    Weather* p_sampleWeather = [[Weather alloc] init];
+    [p_sampleWeather setDelegate:self]; // Set that we are delegate
+    [p_sampleWeather loadFromFile:@"/Users/danmir/Downloads/forecast.xml"];
+    
     return YES;
 }
 
