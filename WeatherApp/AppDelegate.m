@@ -49,8 +49,9 @@
 }
 
 -(void)didWeatherLoadFailed:(NSError *)error {
-    NSLog(@"Что-то пошло не так");
+    NSLog(@"Что-то пошло не так in App delegate");
 }
+#pragma mark - View loading
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -60,6 +61,7 @@
     _window.rootViewController = _itemCtrl;
     [_window makeKeyAndVisible];
     
+    // Обработка callback
     Weather* p_sampleWeather = [[Weather alloc] init];
     [p_sampleWeather setDelegate:self]; // Set that we are delegate
     [p_sampleWeather loadFromFile:@"/Users/danmir/Downloads/forecast.xml"];

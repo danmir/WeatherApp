@@ -43,6 +43,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"ForecastTimeViewController загрузился");
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -51,22 +52,17 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 #pragma mark - public routines
 
 -(void)setTimeItem:(Time *)time
 {
-    _fromView.text = time.from;
-    _toView.text = time.to;
+    // Prepare data
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setTimeStyle:NSDateFormatterShortStyle];
+    [format setDateStyle:NSDateFormatterMediumStyle];
+    _fromView.text = [format stringFromDate:time.from];
+    _toView.text = [format stringFromDate:time.to];
+    
     _descriptionView.text = time.type_of_precipitation;
     
     NSURL* url = [[NSURL alloc] initWithString:@"http://openweathermap.org/img/w/10d.png"];
