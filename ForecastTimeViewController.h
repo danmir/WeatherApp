@@ -12,6 +12,8 @@
 
 @interface ForecastTimeViewController : UIViewController
 
+@property(nonatomic, retain) Time* Item;
+
 -(void) setTimeItem:(Time*)time;
 
 @end

@@ -25,12 +25,16 @@
     UILabel* _fromView;
     UILabel* _toView;
     UILabel* _descriptionView;
+    
+    Time* _item;
 }
 
 @synthesize SymbolView = _symbolView;
 @synthesize FromView = _fromView;
 @synthesize ToView = _toView;
 @synthesize DescriptionView = _descriptionView;
+
+@synthesize Item = _item;
 
 -(id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -50,6 +54,19 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self setTimeItem:_item];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    //self.navigationItem.title = _item.Title;
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
 }
 
 #pragma mark - public routines
@@ -76,6 +93,8 @@
     [_fromView release];
     [_toView release];
     [_descriptionView release];
+    
+    [_item release];
     
     [super dealloc];
 }

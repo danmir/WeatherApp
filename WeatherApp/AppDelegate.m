@@ -14,6 +14,7 @@
 #import "ReadXML.h"
 
 #import "ForecastTimeViewController.h"
+#import "ForecastViewController.h"
 
 @interface AppDelegate () <WeatherDelegate>
 
@@ -24,11 +25,11 @@
 @implementation AppDelegate
 {
     UIWindow* _window;
-    ForecastTimeViewController* _itemCtrl;
+    ForecastViewController* _ctrl;
 }
 
 -(void) dealloc {
-    [_itemCtrl release];
+    [_ctrl release];
     [_window release];
     
     [super dealloc];
@@ -44,8 +45,9 @@
     NSLog(@"Все успешно загрузилось in App delegate");
     NSLog(@"%@", weather);
     Forecast* forecast = [weather.forecasts objectAtIndex:0];
-    Time* time = [forecast.times objectAtIndex:0];
-    [_itemCtrl setTimeItem:time];
+    //Time* time = [forecast.times objectAtIndex:0];
+    //[_itemCtrl setTimeItem:time];
+    [_ctrl setForecast:forecast];
 }
 
 -(void)didWeatherLoadFailed:(NSError *)error {
@@ -57,8 +59,12 @@
     _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     _window.backgroundColor = [UIColor whiteColor];
     
-    _itemCtrl = [[ForecastTimeViewController alloc ] initWithNibName: @"ForecastTimeViewController" bundle:[NSBundle mainBundle]];
-    _window.rootViewController = _itemCtrl;
+    _ctrl = [ [ ForecastViewController alloc ] initWithNibName: @"ForecastViewController" bundle: [ NSBundle mainBundle ] ];
+    
+    //_itemCtrl = [[ForecastTimeViewController alloc ] initWithNibName: @"ForecastTimeViewController" bundle:[NSBundle mainBundle]];
+    UINavigationController* navctrl = [ [ [ UINavigationController alloc ] initWithRootViewController: _ctrl ] autorelease ];
+    navctrl.navigationBar.barStyle = UIBarStyleBlackOpaque;
+    _window.rootViewController = navctrl;
     [_window makeKeyAndVisible];
     
     // Обработка callback

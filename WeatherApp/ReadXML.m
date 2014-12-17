@@ -290,6 +290,9 @@ typedef enum IWRssFeedParserParsingSteps
                 time.from = [fmt dateFromString:[_timeParsingElements objectForKey:@"from"]];
                 time.to = [fmt dateFromString:[_timeParsingElements objectForKey:@"to"]];
                 
+                time.humidity = [_timeParsingElements objectForKey:@"hum_value"];
+                // Добавить остальные поля
+                
                 [_parsedTimes addObject:time];
                 
                 [_timeParsingElements release];
