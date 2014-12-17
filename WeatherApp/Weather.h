@@ -34,6 +34,7 @@
 
 -(void)loadFromFile:(NSString*)file;
 -(void)setDelegate:(id)newDelegate;
+-(void)loadRssFromURL:(NSURL*)url;
 
 
 @end

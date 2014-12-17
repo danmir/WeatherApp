@@ -45,6 +45,10 @@
         [delegate didWeatherLoadFailed:[[NSError alloc] init]];
 }
 
+-(void)loadRssFromURL:(NSURL *)url {
+    
+}
+
 -(void) setDelegate:(id)newDelegate{
     delegate = newDelegate;
 }

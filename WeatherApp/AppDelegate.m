@@ -68,9 +68,9 @@
     [_window makeKeyAndVisible];
     
     // Обработка callback
-    Weather* p_sampleWeather = [[Weather alloc] init];
-    [p_sampleWeather setDelegate:self]; // Set that we are delegate
-    [p_sampleWeather loadFromFile:@"/Users/danmir/Downloads/forecast.xml"];
+    //Weather* p_sampleWeather = [[Weather alloc] init];
+    //[p_sampleWeather setDelegate:self]; // Set that we are delegate
+    //[p_sampleWeather loadFromFile:@"/Users/danmir/Downloads/forecast.xml"];
     
     return YES;
 }

@@ -12,9 +12,16 @@
 #import "Weather.h"
 #import "Time.h"
 
+#import "ForecastTimeCell.h"
+
+#import "WeatherLoader.h"
+
 @interface ForecastViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, retain) IBOutlet UITableView* TableView;
+@property (nonatomic, retain) IBOutlet ForecastTimeCell* ForecastTimeCell;
+
+-(void)weatherLoaded:(id)object;
 
 @end
 
@@ -25,12 +32,16 @@
     
     NSMutableDictionary* _index;
     NSArray* _keys;
+    
+    ForecastTimeCell* _forecastTimeCell;
 }
 
 @synthesize TableView = _tableView;
 @synthesize Forecast = _forecast;
 
-- (id) initWithNibName: ( NSString* )nibNameOrNil bundle: (NSBundle*)nibBundleOrNil {
+@synthesize ForecastTimeCell = _forecastTimeCell;
+
+- (id) initWithNibName:(NSString*)nibNameOrNil bundle: (NSBundle*)nibBundleOrNil {
     self = [super initWithNibName: nibNameOrNil bundle: nibBundleOrNil];
     
     if (nil !=  self) {
@@ -48,6 +59,8 @@
     [_index release];
     [_keys release];
     
+    [_forecastTimeCell release];
+    
     [super dealloc];
 }
 
@@ -64,11 +77,26 @@
     
 //    self.navigationItem.title = _forecast.Title;
     self.navigationItem.title = @"Weather";
+    [[WeatherLoader alloc] initWithURL:[NSURL URLWithString: @"http://api.openweathermap.org/data/2.5/forecast?q=Yekaterinburg&mode=xml"] thenCallTarget: self withSelector:@selector(weatherLoaded:)];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)weatherLoaded: ( id )object {
+    if ( [ object isKindOfClass: [ Weather class ] ] )
+    {
+        Forecast* tmp = [ [ ( Weather* )object forecasts ] objectAtIndex: 0 ];
+        [self setForecast:tmp];
+        [ _tableView reloadData ];
+    }
+    else if ( [ object isKindOfClass: [ NSError class ] ] )
+    {
+        UIAlertView* alert = [ [ [ UIAlertView alloc ] initWithTitle: @"Error" message: @"Не удалось загрузить погоду" delegate: nil cancelButtonTitle: @"OK" otherButtonTitles: nil ] autorelease ];
+        [ alert show ];
+    }
 }
 
 - (void)setForecast:(Forecast *)forecast {
@@ -89,14 +117,14 @@
         
         NSMutableArray* indexitems = [ _index objectForKey: from ];
         if ( nil == indexitems ) {
-            indexitems = [ [ [ NSMutableArray alloc ] init ] autorelease ];
-            [ _index setObject: indexitems forKey: from ];
+            indexitems = [[[NSMutableArray alloc] init] autorelease];
+            [_index setObject: indexitems forKey: from];
             
-            [ keys addObject: from ];
+            [keys addObject: from];
         }
         
         if ( nil != indexitems ) {
-            [ indexitems addObject: time ];
+            [indexitems addObject: time];
         }
     }
     
@@ -122,61 +150,69 @@
     return [ indexitems count ];
 }
 
--( NSString* ) tableView: ( UITableView* )tableView titleForHeaderInSection: ( NSInteger )section
-{
-    if ( section == 0 )
+-(NSString*) tableView: (UITableView*)tableView titleForHeaderInSection:(NSInteger)section {
+    if (section == 0)
         return nil;
-    
-    return [ _keys objectAtIndex: section - 1 ];
+
+    return [_keys objectAtIndex: section - 1];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString* cellStyle1 = @"CellStyle1";
-    UITableViewCell* cell = [ tableView dequeueReusableCellWithIdentifier: cellStyle1 ];
+    static NSString* cellStyleItem = @"myCell";
     
-    if ( nil == cell )
-    {
-        cell = [ [ [ UITableViewCell alloc ] initWithStyle: UITableViewCellStyleSubtitle reuseIdentifier: cellStyle1 ] autorelease ];
-    }
-    
-    if ( 0 == indexPath.section )
-    {
-        cell.textLabel.text = [ NSString stringWithFormat: @"Количество - %d", [ _forecast.times count ] ];
+    if (0 == indexPath.section) {
+        UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier: cellStyle1];
+        if (nil == cell) {
+            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellStyle1] autorelease];
+        }
+        
+        cell.textLabel.text = [NSString stringWithFormat: @"Count - %d", [_forecast.times count]];
         cell.detailTextLabel.text = @"";
         cell.imageView.image = nil;
         cell.accessoryType = UITableViewCellAccessoryNone;
-    }
-    else
-    {
-        NSMutableArray* indexitems = [ _index objectForKey: [ _keys objectAtIndex: indexPath.section - 1 ] ];
         
-        //RssItem* item = [ _channel.Items objectAtIndex: indexPath.row ];
-        Time* time = [ indexitems objectAtIndex: indexPath.row ];
+        return cell;
+    } else {
+        ForecastTimeCell* cell = (ForecastTimeCell*)[tableView dequeueReusableCellWithIdentifier:cellStyleItem];
+        if (nil == cell) {
+            [[NSBundle mainBundle] loadNibNamed: @"ForecastTimeCell" owner:self options:nil];
+            cell = _forecastTimeCell;
+            _forecastTimeCell = nil;
+        }
+        NSMutableArray* indexitems = [_index objectForKey:[_keys objectAtIndex:indexPath.section - 1]];
+        Time* time = [indexitems objectAtIndex: indexPath.row];
         
         NSDateFormatter* fmt = [[[NSDateFormatter alloc] init] autorelease];
         [fmt setDateFormat: @"HH:mm:ss"];
         NSString* from = [fmt stringFromDate: time.from];
         NSString* to = [fmt stringFromDate: time.to];
-
-        cell.textLabel.text = from;
-        cell.detailTextLabel.text = to;
+        
+        //cell.textLabel.text = from;
+        cell.FromLabel.text = from;
+        cell.ToLabel.text = to;
+        
+        // TODO: доделать картинку
+        NSURL* url = [[NSURL alloc] initWithString:@"http://openweathermap.org/img/w/10d.png"];
+        NSData* data = [NSData dataWithContentsOfURL: url];
+        UIImage* img = [UIImage imageWithData: data];
+        cell.ImageView.image = img;
         
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        
+        return cell;
     }
     
-    return cell;
 }
 
 #pragma mark - UITableViewDelegate
 
--( CGFloat ) tableView: ( UITableView* )tableView heightForRowAtIndexPath: ( NSIndexPath* )indexPath
-{
-    return 60.0f;
+-(CGFloat) tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath {
+    return 50.0f;
 }
 
--( void ) tableView: ( UITableView* )tableView didSelectRowAtIndexPath: ( NSIndexPath* )indexPath
-{
+-(void) tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath {
     [ tableView deselectRowAtIndexPath: indexPath animated: YES ];
     
     ForecastTimeViewController* ctrl = [ [ [ ForecastTimeViewController alloc ] initWithNibName: @"ForecastTimeViewController" bundle: [ NSBundle mainBundle ] ] autorelease ];
