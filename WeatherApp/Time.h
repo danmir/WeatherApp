@@ -12,13 +12,19 @@
 
 @property(retain) NSDate* from;
 @property(retain) NSDate* to;
+
+@property(copy) NSString* symbol_var;
+@property(copy) NSString* name_of_symbol;
+
 @property(copy) NSString* type_of_precipitation;
 @property(retain) NSNumber* count_of_precipitation;
-@property(copy) NSString* wind_direction;
-@property(retain) NSNumber* wind_speed;
-@property(retain) NSNumber* temperature;
-@property(retain) NSNumber* pressure;
-@property(retain) NSNumber* humidity;
+
+@property(copy) NSString* wind_direction_name;
+@property(retain) NSNumber* wind_speed_name;
+
+@property(retain) NSNumber* temperature_val_avg;
+@property(retain) NSNumber* pressure_value;
+@property(retain) NSNumber* humidity_val;
 
 +(Time*) createSample1;
 +(Time*) createSample2;

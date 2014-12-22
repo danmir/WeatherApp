@@ -16,6 +16,9 @@
 @property (nonatomic, retain) IBOutlet UILabel* FromView;
 @property (nonatomic, retain) IBOutlet UILabel* ToView;
 @property (nonatomic, retain) IBOutlet UILabel* DescriptionView;
+@property (nonatomic, retain) IBOutlet UILabel* NameOfSymbol;
+@property (nonatomic, retain) IBOutlet UILabel* HumidityVal;
+@property (nonatomic, retain) IBOutlet UIActivityIndicatorView *ActivityIndicator;
 
 @end
 
@@ -25,6 +28,7 @@
     UILabel* _fromView;
     UILabel* _toView;
     UILabel* _descriptionView;
+    UILabel* _humidityVal;
     
     Time* _item;
 }
@@ -33,6 +37,10 @@
 @synthesize FromView = _fromView;
 @synthesize ToView = _toView;
 @synthesize DescriptionView = _descriptionView;
+@synthesize NameOfSymbol = _nameOfSymbol;
+@synthesize HumidityVal = _humidityVal;
+
+@synthesize ActivityIndicator = _activityIndictor;
 
 @synthesize Item = _item;
 
@@ -64,6 +72,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [_activityIndictor startAnimating];
     
     //self.navigationItem.title = _item.Title;
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
@@ -80,12 +89,17 @@
     _fromView.text = [format stringFromDate:time.from];
     _toView.text = [format stringFromDate:time.to];
     
-    _descriptionView.text = time.type_of_precipitation;
+    _descriptionView.text = time.symbol_var;
     
-    NSURL* url = [[NSURL alloc] initWithString:@"http://openweathermap.org/img/w/10d.png"];
+    NSString* url_string = [NSString stringWithFormat:@"http://openweathermap.org/img/w/%@.png", time.symbol_var];
+    NSURL* url = [[NSURL alloc] initWithString:url_string];
     NSData* data = [NSData dataWithContentsOfURL: url];
     UIImage* img = [UIImage imageWithData: data];
     _symbolView.image = img;
+    
+    _nameOfSymbol.text = time.name_of_symbol;
+    
+    _humidityVal.text = [NSString stringWithFormat:@"Humidity: %@ percent", time.humidity_val];
 }
 
 -(void) dealloc {
@@ -93,9 +107,12 @@
     [_fromView release];
     [_toView release];
     [_descriptionView release];
+    [_nameOfSymbol release];
+    [_humidityVal release];
     
     [_item release];
     
+    [_activityIndictor release];
     [super dealloc];
 }
 

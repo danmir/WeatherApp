@@ -45,9 +45,10 @@
     NSLog(@"Все успешно загрузилось in App delegate");
     NSLog(@"%@", weather);
     Forecast* forecast = [weather.forecasts objectAtIndex:0];
-    //Time* time = [forecast.times objectAtIndex:0];
+    Time* time = [forecast.times objectAtIndex:0];
     //[_itemCtrl setTimeItem:time];
-    [_ctrl setForecast:forecast];
+    _ctrl.Forecast = forecast;
+    //[_ctrl setForecast:forecast];
 }
 
 -(void)didWeatherLoadFailed:(NSError *)error {

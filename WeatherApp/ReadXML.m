@@ -211,6 +211,7 @@ typedef enum IWRssFeedParserParsingSteps
             {
                 [_timeParsingElements setObject:[attributeDict objectForKey:@"number"] forKey:@"symbol_num"];
                 [_timeParsingElements setObject:[attributeDict objectForKey:@"name"] forKey:@"symbol_name"];
+                [_timeParsingElements setObject:[attributeDict objectForKey:@"var"] forKey:@"symbol_var"];
 //                _currentStep = kWeatherParserParsingStepTimeSymbol;
 //                _currentElementString = [[NSMutableString alloc] init];
             }
@@ -283,14 +284,21 @@ typedef enum IWRssFeedParserParsingSteps
             {
                 NSDateFormatter* fmt = [[[NSDateFormatter alloc] init] autorelease];
 //                [fmt setDateFormat:@"EEE, dd MMM yyyy HH:mm:ss ZZZZ"];
-                [fmt setDateFormat:@"yyyy-mm-ddEHH:mm:ss"];
-                [fmt setLocale:[[[ NSLocale alloc ]initWithLocaleIdentifier:@"en_US"]autorelease]];
+                [fmt setDateFormat:@"yyyy-MM-ddEHH:mm:ss"];
+                //[fmt setLocale:[[[ NSLocale alloc ]initWithLocaleIdentifier:@"en_US"]autorelease]];
                 
                 Time* time = [[[Time alloc] init] autorelease];
                 time.from = [fmt dateFromString:[_timeParsingElements objectForKey:@"from"]];
                 time.to = [fmt dateFromString:[_timeParsingElements objectForKey:@"to"]];
                 
-                time.humidity = [_timeParsingElements objectForKey:@"hum_value"];
+                time.symbol_var = [_timeParsingElements objectForKey:@"symbol_var"];
+                time.name_of_symbol = [_timeParsingElements objectForKey:@"symbol_name"];
+                
+                NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+                [f setNumberStyle:NSNumberFormatterDecimalStyle];
+                //NSNumber * myNumber = [f numberFromString:@"42"];
+                time.humidity_val = [f numberFromString:[_timeParsingElements objectForKey:@"hum_value"]];
+                [f release];
                 // Добавить остальные поля
                 
                 [_parsedTimes addObject:time];

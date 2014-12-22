@@ -12,13 +12,13 @@
 
 @synthesize from;
 @synthesize to;
-@synthesize type_of_precipitation;
+@synthesize symbol_var;
 @synthesize count_of_precipitation;
-@synthesize wind_direction;
-@synthesize wind_speed;
-@synthesize temperature;
-@synthesize pressure;
-@synthesize humidity;
+@synthesize wind_direction_name;
+@synthesize wind_speed_name;
+@synthesize temperature_val_avg;
+@synthesize pressure_value;
+@synthesize humidity_val;
 
 -(id) init {
     if (self = [super init]) {
@@ -32,13 +32,13 @@
     sample.from = [NSDate date];
     sample.to = [NSDate date];
     
-    sample.type_of_precipitation = @"Showers";
+    sample.symbol_var = @"Showers";
     sample.count_of_precipitation = [[NSNumber alloc] initWithDouble:50];
-    sample.wind_direction = @"North";
-    sample.wind_speed = [[NSNumber alloc] initWithDouble:50];
-    sample.temperature = [[NSNumber alloc] initWithDouble:20];
-    sample.pressure = [[NSNumber alloc] initWithDouble:50];
-    sample.humidity = [[NSNumber alloc] initWithDouble:50];
+    sample.wind_direction_name = @"North";
+    sample.wind_speed_name = [[NSNumber alloc] initWithDouble:50];
+    sample.temperature_val_avg = [[NSNumber alloc] initWithDouble:20];
+    sample.pressure_value = [[NSNumber alloc] initWithDouble:50];
+    sample.humidity_val = [[NSNumber alloc] initWithDouble:50];
     
     [sample autorelease];
     
@@ -50,13 +50,13 @@
     sample.from = [NSDate date];
     sample.to = [NSDate date];
     
-    sample.type_of_precipitation = @"Rain";
+    sample.symbol_var = @"Rain";
     sample.count_of_precipitation = [[NSNumber alloc] initWithDouble:50];
-    sample.wind_direction = @"North";
-    sample.wind_speed = [[NSNumber alloc] initWithDouble:50];
-    sample.temperature = [[NSNumber alloc] initWithDouble:20];
-    sample.pressure = [[NSNumber alloc] initWithDouble:50];
-    sample.humidity = [[NSNumber alloc] initWithDouble:50];
+    sample.wind_direction_name = @"North";
+    sample.wind_speed_name = [[NSNumber alloc] initWithDouble:50];
+    sample.temperature_val_avg = [[NSNumber alloc] initWithDouble:20];
+    sample.pressure_value = [[NSNumber alloc] initWithDouble:50];
+    sample.humidity_val = [[NSNumber alloc] initWithDouble:50];
     
     [sample autorelease];
     
@@ -68,13 +68,13 @@
     sample.from = [NSDate date];
     sample.to = [NSDate date];
     
-    sample.type_of_precipitation = @"Sunny";
+    sample.symbol_var = @"Sunny";
     sample.count_of_precipitation = [[NSNumber alloc] initWithDouble:50];
-    sample.wind_direction = @"North";
-    sample.wind_speed = [[NSNumber alloc] initWithDouble:50];
-    sample.temperature = [[NSNumber alloc] initWithDouble:20];
-    sample.pressure = [[NSNumber alloc] initWithDouble:50];
-    sample.humidity = [[NSNumber alloc] initWithDouble:50];
+    sample.wind_direction_name = @"North";
+    sample.wind_speed_name = [[NSNumber alloc] initWithDouble:50];
+    sample.temperature_val_avg = [[NSNumber alloc] initWithDouble:20];
+    sample.pressure_value = [[NSNumber alloc] initWithDouble:50];
+    sample.humidity_val = [[NSNumber alloc] initWithDouble:50];
     
     [sample autorelease];
     
@@ -84,13 +84,13 @@
 -(void) dealloc{
     [from release];
     [to release];
-    [type_of_precipitation release];
+    [symbol_var release];
     [count_of_precipitation release];
-    [wind_direction release];
-    [wind_speed release];
-    [temperature release];
-    [pressure release];
-    [humidity release];
+    [wind_direction_name release];
+    [wind_speed_name release];
+    [temperature_val_avg release];
+    [pressure_value release];
+    [humidity_val release];
 
     [super dealloc];
 }

@@ -107,6 +107,8 @@
     [_keys release];
     
     NSDateFormatter* fmt = [[[NSDateFormatter alloc] init] autorelease];
+    //[fmt setTimeStyle:NSDateFormatterShortStyle];
+    //[fmt setDateStyle:NSDateFormatterMediumStyle];
     [fmt setDateFormat: @"yyyy-MM-dd"];
     
     NSMutableArray* keys = [ NSMutableArray array ];
@@ -193,8 +195,8 @@
         cell.FromLabel.text = from;
         cell.ToLabel.text = to;
         
-        // TODO: доделать картинку
-        NSURL* url = [[NSURL alloc] initWithString:@"http://openweathermap.org/img/w/10d.png"];
+        NSString* url_string = [NSString stringWithFormat:@"http://openweathermap.org/img/w/%@.png", time.symbol_var];
+        NSURL* url = [[NSURL alloc] initWithString:url_string];
         NSData* data = [NSData dataWithContentsOfURL: url];
         UIImage* img = [UIImage imageWithData: data];
         cell.ImageView.image = img;
