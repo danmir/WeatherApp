@@ -62,7 +62,6 @@ typedef enum IWRssFeedParserParsingSteps
 @property (nonatomic, retain) Weather* m_resultWeather;
 @property (nonatomic, retain) NSData* m_fileData;
 @property (nonatomic, copy) NSString* m_filePath;
-//@property (nonatomic, retain) NSMutableArray* ParsedForecasts;
 @end
 
 @implementation ReadXML
@@ -83,8 +82,6 @@ typedef enum IWRssFeedParserParsingSteps
 @synthesize m_resultWeather;
 @synthesize m_fileData;
 @synthesize m_filePath;
-
-//@synthesize ParsedForecasts = _parsedForecasts;
 
 #pragma mark - initiation and deallocation
 
@@ -107,7 +104,7 @@ typedef enum IWRssFeedParserParsingSteps
 }
 
 -(id)initWithWeatherFromData:(NSData *)data delegate:(id<ReadXMLDelegate>)theDelegate {
-    if (self = [super init]) {
+    if (self = [self init]) {
         delegate = theDelegate;
         m_fileData = data;
     }
@@ -115,7 +112,7 @@ typedef enum IWRssFeedParserParsingSteps
 }
 
 -(id)initWithWeatherFromFile:(NSString *)path delegate:(id<ReadXMLDelegate>)theDelegate {
-    if (self = [super init]) {
+    if (self = [self init]) {
         delegate = theDelegate;
         m_filePath = path;
     }
@@ -135,8 +132,8 @@ typedef enum IWRssFeedParserParsingSteps
     [ _parsedTimes release ];
     
     [delegate release];
-    //[m_fileData release];
-    //[m_filePath release];
+    [m_fileData release];
+    [m_filePath release];
     
     [ super dealloc ];
 }

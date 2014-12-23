@@ -41,8 +41,9 @@
 }
 
 -(void) dealloc {
-    [ _data release ];
-    [ _connection release ];
+    // TODO: разобраться в чем тут дело с памятью и почему это приводит к ошибкам
+    //[ _data release ];
+    //[ _connection release ];
     
     [ super dealloc ];
 }
@@ -79,10 +80,10 @@
 -(void)readXMLDidFinish:(Weather *)weather{
     // Парсер отработал и прислал нам weather
     if (weather)
-        NSLog(@"Парсер сработал");
+        NSLog(@"Парсер закончил работу");
     // Отправляем дальше
     [ _target performSelector: _selector withObject: weather ];
-    [ self autorelease ];
+    //[ self autorelease ];
 }
 
 #pragma mark - NSURLConnectionDelegate
@@ -90,7 +91,7 @@
 -( void ) connection: ( NSURLConnection* )connection didFailWithError: ( NSError* )error
 {
     [ _target performSelector: _selector withObject: error ];
-    [ self autorelease ];
+    //[ self autorelease ];
 }
 
 @end
