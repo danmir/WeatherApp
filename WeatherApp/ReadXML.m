@@ -299,6 +299,8 @@ typedef enum IWRssFeedParserParsingSteps
                 //NSNumber * myNumber = [f numberFromString:@"42"];
                 time.humidity_val = [f numberFromString:[_timeParsingElements objectForKey:@"hum_value"]];
                 [f release];
+                
+                time.temperature_val_avg = [_timeParsingElements objectForKey:@"temp_value"];
                 // Добавить остальные поля
                 
                 [_parsedTimes addObject:time];

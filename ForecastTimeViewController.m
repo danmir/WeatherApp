@@ -19,6 +19,7 @@
 @property (nonatomic, retain) IBOutlet UILabel* NameOfSymbol;
 @property (nonatomic, retain) IBOutlet UILabel* HumidityVal;
 @property (nonatomic, retain) IBOutlet UIActivityIndicatorView *ActivityIndicator;
+@property (retain, nonatomic) IBOutlet UILabel *Temperature;
 
 @end
 
@@ -39,6 +40,7 @@
 @synthesize DescriptionView = _descriptionView;
 @synthesize NameOfSymbol = _nameOfSymbol;
 @synthesize HumidityVal = _humidityVal;
+@synthesize Temperature = _temperature;
 
 @synthesize ActivityIndicator = _activityIndictor;
 
@@ -68,11 +70,13 @@
     [super viewDidAppear:animated];
     
     [self setTimeItem:_item];
+    // Stop activityIndicator when loaded
     [_activityIndictor stopAnimating];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    //Start activityIndicator
     [_activityIndictor startAnimating];
     
     //self.navigationItem.title = _item.Title;
@@ -91,6 +95,7 @@
     _toView.text = [format stringFromDate:time.to];
     
     _descriptionView.text = time.symbol_var;
+    _temperature.text = [NSString stringWithFormat:@"Температура %@", time.temperature_val_avg];
     
     NSString* url_string = [NSString stringWithFormat:@"http://openweathermap.org/img/w/%@.png", time.symbol_var];
     NSURL* url = [[NSURL alloc] initWithString:url_string];
@@ -114,6 +119,7 @@
     [_item release];
     
     [_activityIndictor release];
+    [_temperature release];
     [super dealloc];
 }
 
