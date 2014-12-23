@@ -68,6 +68,7 @@
     [super viewDidAppear:animated];
     
     [self setTimeItem:_item];
+    [_activityIndictor stopAnimating];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
