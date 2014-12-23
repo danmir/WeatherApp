@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ReadXML.h"
 
-@interface WeatherLoader : NSObject
+@interface WeatherLoader : NSObject <ReadXMLDelegate>
 
 -(id)initWithURL:(NSURL*)url thenCallTarget:(id)target withSelector:(SEL)selector;
 

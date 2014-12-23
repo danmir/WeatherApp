@@ -9,9 +9,18 @@
 #import <Foundation/Foundation.h>
 #import "Weather.h"
 
-@interface ReadXML: NSObject
+@protocol ReadXMLDelegate <NSObject>
 
--(Weather*)parseWeatherFromFile:(NSString*)filePath;
--(Weather*)parseWeatherFromData:(NSData*)data;
+-(void)readXMLDidFinish:(Weather*)weather;
+
+@end
+
+@interface ReadXML: NSOperation
+
+-(id)initWithWeatherFromFile:(NSString*)path delegate:(id<ReadXMLDelegate>)theDelegate;
+-(id)initWithWeatherFromData:(NSData*)data delegate:(id<ReadXMLDelegate>)theDelegate;
+
+//-(Weather*)parseWeatherFromFile:(NSString*)filePath;
+//-(Weather*)parseWeatherFromData:(NSData*)data;
 
 @end

@@ -57,7 +57,12 @@ typedef enum IWRssFeedParserParsingSteps
 } IWeatherParserParsingSteps;
 
 @interface ReadXML ( ) < NSXMLParserDelegate >
-
+@property (nonatomic, assign) id <ReadXMLDelegate> delegate;
+// Служебные переменные, которые могут передать
+@property (nonatomic, retain) Weather* m_resultWeather;
+@property (nonatomic, retain) NSData* m_fileData;
+@property (nonatomic, copy) NSString* m_filePath;
+//@property (nonatomic, retain) NSMutableArray* ParsedForecasts;
 @end
 
 @implementation ReadXML
@@ -73,6 +78,13 @@ typedef enum IWRssFeedParserParsingSteps
     NSMutableArray* _parsedTimes;
 
 }
+
+@synthesize delegate;
+@synthesize m_resultWeather;
+@synthesize m_fileData;
+@synthesize m_filePath;
+
+//@synthesize ParsedForecasts = _parsedForecasts;
 
 #pragma mark - initiation and deallocation
 
@@ -94,6 +106,22 @@ typedef enum IWRssFeedParserParsingSteps
     return self;
 }
 
+-(id)initWithWeatherFromData:(NSData *)data delegate:(id<ReadXMLDelegate>)theDelegate {
+    if (self = [super init]) {
+        delegate = theDelegate;
+        m_fileData = data;
+    }
+    return self;
+}
+
+-(id)initWithWeatherFromFile:(NSString *)path delegate:(id<ReadXMLDelegate>)theDelegate {
+    if (self = [super init]) {
+        delegate = theDelegate;
+        m_filePath = path;
+    }
+    return self;
+}
+
 -(void) dealloc
 {
     NSLog( @"ReadXML dealloc" );
@@ -106,7 +134,26 @@ typedef enum IWRssFeedParserParsingSteps
     [ _parsedForecasts release ];
     [ _parsedTimes release ];
     
+    [delegate release];
+    //[m_fileData release];
+    //[m_filePath release];
+    
     [ super dealloc ];
+}
+
+-(void) main{
+    @autoreleasepool {
+        // Если попросят завершить операцию
+        if (self.isCancelled)
+            return;
+        //Определим, что у нас есть
+        if (m_filePath) {
+            m_resultWeather = [self parseWeatherFromFile:m_filePath];
+        } else
+            m_resultWeather = [self parseWeatherFromData:m_fileData];
+        //Notify the caller on the main thread.
+        [(NSObject*)self.delegate performSelectorOnMainThread:@selector(readXMLDidFinish:) withObject:m_resultWeather waitUntilDone:NO];
+    }
 }
 
 #pragma mark - public routines
@@ -344,7 +391,7 @@ typedef enum IWRssFeedParserParsingSteps
         case kWeatherParserParsingStepForecast:
             if ([elementName isEqualToString:kForecastElement])
             {
-                Forecast* forecast = [[[Forecast alloc] init] autorelease];
+                Forecast* forecast = [[Forecast alloc] init];
                 forecast.sunrise = [_weatherParsingElements objectForKey:@"rise"];
                 forecast.sunset = [_weatherParsingElements objectForKey:@"set"];
                 // TODO: from и to посчитать из всех Times

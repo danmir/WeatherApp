@@ -7,7 +7,6 @@
 //
 
 #import "WeatherLoader.h"
-#import "ReadXML.h"
 
 @interface WeatherLoader ( ) <NSURLConnectionDataDelegate, NSURLConnectionDelegate>
 
@@ -60,9 +59,28 @@
 
 -( void ) connectionDidFinishLoading: ( NSURLConnection* )connection
 {
-    ReadXML* parser = [ [ [ ReadXML alloc ] init ] autorelease ];
-    Weather* weather = [parser parseWeatherFromData: _data];
+    ReadXML* parser = [[ReadXML alloc] initWithWeatherFromData:_data delegate:self];
+    NSOperationQueue* queue = [[NSOperationQueue alloc] init];
+    [queue addOperation:parser];
+    [parser setCompletionBlock: ^{
+        NSLog(@"Finished ReadXML in queue");
+    }];
+    [parser release];
     
+    //ReadXML* parser = [ [ [ ReadXML alloc ] init ] autorelease ];
+    //Weather* weather = [parser parseWeatherFromData: _data];
+    
+    //[ _target performSelector: _selector withObject: weather ];
+    //[ self autorelease ];
+}
+
+#pragma mark - ReadXMLDelegate
+
+-(void)readXMLDidFinish:(Weather *)weather{
+    // Парсер отработал и прислал нам weather
+    if (weather)
+        NSLog(@"Парсер сработал");
+    // Отправляем дальше
     [ _target performSelector: _selector withObject: weather ];
     [ self autorelease ];
 }
