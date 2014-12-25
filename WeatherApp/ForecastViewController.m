@@ -74,8 +74,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear: animated];
-    
-//    self.navigationItem.title = _forecast.Title;
+
+    // Как только начнем щагрузку
     self.navigationItem.title = @"Weather";
     [[WeatherLoader alloc] initWithURL:[NSURL URLWithString: @"http://api.openweathermap.org/data/2.5/forecast?q=Yekaterinburg&mode=xml"] thenCallTarget: self withSelector:@selector(weatherLoaded:)];
 }
@@ -129,7 +129,7 @@
             [indexitems addObject: time];
         }
     }
-    
+    // TODO: Неправильно работает сортировка !
     _keys = [ [ keys sortedArrayUsingComparator: ^NSComparisonResult( NSString* key1, NSString* key2 )
                {
                    return [ key2 compare: key1 ];

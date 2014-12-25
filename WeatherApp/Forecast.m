@@ -23,22 +23,11 @@
     return self;
 }
 
-+(Forecast*) createSample1 {
-    Forecast* sample_forecast = [[Forecast alloc] init];
-    sample_forecast.from = [NSDate date];
-    sample_forecast.to = [NSDate date];
-    
-    sample_forecast.sunrise = [NSDate date];
-    sample_forecast.sunset = [NSDate date];
-    
-    sample_forecast.times = [[NSMutableArray alloc] initWithObjects:[Time createSample1], [Time createSample2], [Time createSample3], nil];
-    
-    [sample_forecast autorelease];
-    
-    return sample_forecast;
-}
-
 -(void) dealloc{
+    [from release];
+    [to release];
+    [sunrise release];
+    [sunset release];
     [super dealloc];
 }
 

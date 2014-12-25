@@ -26,8 +26,4 @@
 @property(retain) NSNumber* pressure_value;
 @property(retain) NSNumber* humidity_val;
 
-+(Time*) createSample1;
-+(Time*) createSample2;
-+(Time*) createSample3;
-
 @end

@@ -27,59 +27,6 @@
     return self;
 }
 
-+(Time*) createSample1 {
-    Time* sample = [[Time alloc] init];
-    sample.from = [NSDate date];
-    sample.to = [NSDate date];
-    
-    sample.symbol_var = @"Showers";
-    sample.count_of_precipitation = [[NSNumber alloc] initWithDouble:50];
-    sample.wind_direction_name = @"North";
-    sample.wind_speed_name = [[NSNumber alloc] initWithDouble:50];
-    sample.temperature_val_avg = [[NSNumber alloc] initWithDouble:20];
-    sample.pressure_value = [[NSNumber alloc] initWithDouble:50];
-    sample.humidity_val = [[NSNumber alloc] initWithDouble:50];
-    
-    [sample autorelease];
-    
-    return sample;
-}
-
-+(Time*) createSample2 {
-    Time* sample = [[Time alloc] init];
-    sample.from = [NSDate date];
-    sample.to = [NSDate date];
-    
-    sample.symbol_var = @"Rain";
-    sample.count_of_precipitation = [[NSNumber alloc] initWithDouble:50];
-    sample.wind_direction_name = @"North";
-    sample.wind_speed_name = [[NSNumber alloc] initWithDouble:50];
-    sample.temperature_val_avg = [[NSNumber alloc] initWithDouble:20];
-    sample.pressure_value = [[NSNumber alloc] initWithDouble:50];
-    sample.humidity_val = [[NSNumber alloc] initWithDouble:50];
-    
-    [sample autorelease];
-    
-    return sample;
-}
-
-+(Time*) createSample3 {
-    Time* sample = [[Time alloc] init];
-    sample.from = [NSDate date];
-    sample.to = [NSDate date];
-    
-    sample.symbol_var = @"Sunny";
-    sample.count_of_precipitation = [[NSNumber alloc] initWithDouble:50];
-    sample.wind_direction_name = @"North";
-    sample.wind_speed_name = [[NSNumber alloc] initWithDouble:50];
-    sample.temperature_val_avg = [[NSNumber alloc] initWithDouble:20];
-    sample.pressure_value = [[NSNumber alloc] initWithDouble:50];
-    sample.humidity_val = [[NSNumber alloc] initWithDouble:50];
-    
-    [sample autorelease];
-    
-    return sample;
-}
 
 -(void) dealloc{
     [from release];

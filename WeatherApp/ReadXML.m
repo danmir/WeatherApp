@@ -345,7 +345,7 @@ typedef enum IWRssFeedParserParsingSteps
                 [f release];
                 
                 time.temperature_val_avg = [_timeParsingElements objectForKey:@"temp_value"];
-                // Добавить остальные поля
+                // TODO: Можно добавить остальные поля
                 
                 [_parsedTimes addObject:time];
                 

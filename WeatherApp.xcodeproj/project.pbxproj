@@ -11,22 +11,19 @@
 		9340CA931A2629F4007786E7 /* ForecastViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9340CA911A2629F4007786E7 /* ForecastViewController.xib */; };
 		93420D0719EEB1F7009C03B0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93420D0619EEB1F7009C03B0 /* main.m */; };
 		93420D0A19EEB1F7009C03B0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93420D0919EEB1F7009C03B0 /* AppDelegate.m */; };
-		93420D0D19EEB1F7009C03B0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93420D0C19EEB1F7009C03B0 /* ViewController.m */; };
-		93420D1019EEB1F7009C03B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93420D0E19EEB1F7009C03B0 /* Main.storyboard */; };
 		93420D1219EEB1F7009C03B0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93420D1119EEB1F7009C03B0 /* Images.xcassets */; };
 		93420D1519EEB1F7009C03B0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93420D1319EEB1F7009C03B0 /* LaunchScreen.xib */; };
 		93420D2119EEB1F7009C03B0 /* WeatherAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 93420D2019EEB1F7009C03B0 /* WeatherAppTests.m */; };
 		93420D5E19EEB3B1009C03B0 /* Time.m in Sources */ = {isa = PBXBuildFile; fileRef = 93420D5D19EEB3B1009C03B0 /* Time.m */; };
 		93420D6119EEBA0A009C03B0 /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 93420D6019EEBA0A009C03B0 /* Forecast.m */; };
 		93420D6419EEBC52009C03B0 /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = 93420D6319EEBC52009C03B0 /* Weather.m */; };
-		9372BD9319F7E5B500EDD7BA /* Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 9372BD9219F7E5B500EDD7BA /* Client.m */; };
 		93A29F0A1A13AB470033DA22 /* ForecastTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A29F081A13AB470033DA22 /* ForecastTimeViewController.m */; };
 		93A29F0B1A13AB470033DA22 /* ForecastTimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93A29F091A13AB470033DA22 /* ForecastTimeViewController.xib */; };
-		93B0129F1A01313600EF35BE /* forecast.xml in Resources */ = {isa = PBXBuildFile; fileRef = 93B0129E1A01313500EF35BE /* forecast.xml */; };
 		93B012A21A0131A000EF35BE /* ReadXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B012A11A0131A000EF35BE /* ReadXML.m */; };
 		93E1D88D1A41AD250056BDDC /* ForecastTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93E1D88C1A41AD250056BDDC /* ForecastTimeCell.xib */; };
 		93E1D8901A41AE080056BDDC /* ForecastTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E1D88F1A41AE080056BDDC /* ForecastTimeCell.m */; };
 		93E1D8931A41CD8E0056BDDC /* WeatherLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E1D8921A41CD8E0056BDDC /* WeatherLoader.m */; };
+		93FAF34E1A4BFB0700B4A526 /* forecast.xml in Resources */ = {isa = PBXBuildFile; fileRef = 93FAF34D1A4BFB0700B4A526 /* forecast.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,9 +45,6 @@
 		93420D0619EEB1F7009C03B0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		93420D0819EEB1F7009C03B0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		93420D0919EEB1F7009C03B0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		93420D0B19EEB1F7009C03B0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		93420D0C19EEB1F7009C03B0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		93420D0F19EEB1F7009C03B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		93420D1119EEB1F7009C03B0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		93420D1419EEB1F7009C03B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		93420D1A19EEB1F7009C03B0 /* WeatherAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,12 +56,9 @@
 		93420D6019EEBA0A009C03B0 /* Forecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forecast.m; sourceTree = "<group>"; };
 		93420D6219EEBC52009C03B0 /* Weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weather.h; sourceTree = "<group>"; };
 		93420D6319EEBC52009C03B0 /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = "<group>"; };
-		9372BD9119F7E5B400EDD7BA /* Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Client.h; sourceTree = "<group>"; };
-		9372BD9219F7E5B500EDD7BA /* Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Client.m; sourceTree = "<group>"; };
 		93A29F071A13AB470033DA22 /* ForecastTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForecastTimeViewController.h; path = ../ForecastTimeViewController.h; sourceTree = "<group>"; };
 		93A29F081A13AB470033DA22 /* ForecastTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForecastTimeViewController.m; path = ../ForecastTimeViewController.m; sourceTree = "<group>"; };
 		93A29F091A13AB470033DA22 /* ForecastTimeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ForecastTimeViewController.xib; path = ../ForecastTimeViewController.xib; sourceTree = "<group>"; };
-		93B0129E1A01313500EF35BE /* forecast.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = forecast.xml; path = ../../../../../Downloads/forecast.xml; sourceTree = "<group>"; };
 		93B012A01A0131A000EF35BE /* ReadXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadXML.h; sourceTree = "<group>"; };
 		93B012A11A0131A000EF35BE /* ReadXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadXML.m; sourceTree = "<group>"; };
 		93E1D88C1A41AD250056BDDC /* ForecastTimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForecastTimeCell.xib; sourceTree = "<group>"; };
@@ -75,6 +66,7 @@
 		93E1D88F1A41AE080056BDDC /* ForecastTimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastTimeCell.m; sourceTree = "<group>"; };
 		93E1D8911A41CD8E0056BDDC /* WeatherLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherLoader.h; sourceTree = "<group>"; };
 		93E1D8921A41CD8E0056BDDC /* WeatherLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherLoader.m; sourceTree = "<group>"; };
+		93FAF34D1A4BFB0700B4A526 /* forecast.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = forecast.xml; path = WeatherApp/forecast.xml; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,19 +108,15 @@
 		93420D0319EEB1F7009C03B0 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
-				93B0129E1A01313500EF35BE /* forecast.xml */,
+				93FAF34D1A4BFB0700B4A526 /* forecast.xml */,
 				93420D0819EEB1F7009C03B0 /* AppDelegate.h */,
 				93420D0919EEB1F7009C03B0 /* AppDelegate.m */,
-				93420D0B19EEB1F7009C03B0 /* ViewController.h */,
-				93420D0C19EEB1F7009C03B0 /* ViewController.m */,
 				93420D5C19EEB3B1009C03B0 /* Time.h */,
 				93420D5D19EEB3B1009C03B0 /* Time.m */,
 				93420D5F19EEBA0A009C03B0 /* Forecast.h */,
 				93420D6019EEBA0A009C03B0 /* Forecast.m */,
 				93420D6219EEBC52009C03B0 /* Weather.h */,
 				93420D6319EEBC52009C03B0 /* Weather.m */,
-				9372BD9119F7E5B400EDD7BA /* Client.h */,
-				9372BD9219F7E5B500EDD7BA /* Client.m */,
 				93E1D8911A41CD8E0056BDDC /* WeatherLoader.h */,
 				93E1D8921A41CD8E0056BDDC /* WeatherLoader.m */,
 				93B012A01A0131A000EF35BE /* ReadXML.h */,
@@ -139,10 +127,9 @@
 				9340CA8F1A2629F4007786E7 /* ForecastViewController.h */,
 				9340CA901A2629F4007786E7 /* ForecastViewController.m */,
 				9340CA911A2629F4007786E7 /* ForecastViewController.xib */,
-				93E1D88C1A41AD250056BDDC /* ForecastTimeCell.xib */,
 				93E1D88E1A41AE080056BDDC /* ForecastTimeCell.h */,
 				93E1D88F1A41AE080056BDDC /* ForecastTimeCell.m */,
-				93420D0E19EEB1F7009C03B0 /* Main.storyboard */,
+				93E1D88C1A41AD250056BDDC /* ForecastTimeCell.xib */,
 				93420D1119EEB1F7009C03B0 /* Images.xcassets */,
 				93420D1319EEB1F7009C03B0 /* LaunchScreen.xib */,
 				93420D0419EEB1F7009C03B0 /* Supporting Files */,
@@ -257,11 +244,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				93A29F0B1A13AB470033DA22 /* ForecastTimeViewController.xib in Resources */,
+				93FAF34E1A4BFB0700B4A526 /* forecast.xml in Resources */,
 				93E1D88D1A41AD250056BDDC /* ForecastTimeCell.xib in Resources */,
 				9340CA931A2629F4007786E7 /* ForecastViewController.xib in Resources */,
-				93420D1019EEB1F7009C03B0 /* Main.storyboard in Resources */,
 				93420D1519EEB1F7009C03B0 /* LaunchScreen.xib in Resources */,
-				93B0129F1A01313600EF35BE /* forecast.xml in Resources */,
 				93420D1219EEB1F7009C03B0 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,8 +268,6 @@
 			files = (
 				93420D6419EEBC52009C03B0 /* Weather.m in Sources */,
 				93420D5E19EEB3B1009C03B0 /* Time.m in Sources */,
-				9372BD9319F7E5B500EDD7BA /* Client.m in Sources */,
-				93420D0D19EEB1F7009C03B0 /* ViewController.m in Sources */,
 				93420D6119EEBA0A009C03B0 /* Forecast.m in Sources */,
 				93E1D8931A41CD8E0056BDDC /* WeatherLoader.m in Sources */,
 				9340CA921A2629F4007786E7 /* ForecastViewController.m in Sources */,
@@ -314,14 +298,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		93420D0E19EEB1F7009C03B0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				93420D0F19EEB1F7009C03B0 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		93420D1319EEB1F7009C03B0 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

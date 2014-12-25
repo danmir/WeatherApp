@@ -41,9 +41,8 @@
 }
 
 -(void) dealloc {
-    // TODO: разобраться в чем тут дело с памятью и почему это приводит к ошибкам
-    //[ _data release ];
-    //[ _connection release ];
+    [ _data release ];
+    [ _connection release ];
     
     [ super dealloc ];
 }
@@ -61,18 +60,14 @@
 -( void ) connectionDidFinishLoading: ( NSURLConnection* )connection
 {
     ReadXML* parser = [[ReadXML alloc] initWithWeatherFromData:_data delegate:self];
+    // Делаем отдельную очередь и добавляем туда парсер
     NSOperationQueue* queue = [[NSOperationQueue alloc] init];
     [queue addOperation:parser];
     [parser setCompletionBlock: ^{
         NSLog(@"Finished ReadXML in queue");
+        [parser release];
+        [self autorelease];
     }];
-    [parser release];
-    
-    //ReadXML* parser = [ [ [ ReadXML alloc ] init ] autorelease ];
-    //Weather* weather = [parser parseWeatherFromData: _data];
-    
-    //[ _target performSelector: _selector withObject: weather ];
-    //[ self autorelease ];
 }
 
 #pragma mark - ReadXMLDelegate
@@ -83,7 +78,6 @@
         NSLog(@"Парсер закончил работу");
     // Отправляем дальше
     [ _target performSelector: _selector withObject: weather ];
-    //[ self autorelease ];
 }
 
 #pragma mark - NSURLConnectionDelegate
@@ -91,7 +85,6 @@
 -( void ) connection: ( NSURLConnection* )connection didFailWithError: ( NSError* )error
 {
     [ _target performSelector: _selector withObject: error ];
-    //[ self autorelease ];
 }
 
 @end

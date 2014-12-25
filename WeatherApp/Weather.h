@@ -11,16 +11,8 @@
 
 @class Weather;
 
-@protocol WeatherDelegate <NSObject>
 
--(void) didWeatherLoadSucceeded:(Weather*)weather;
--(void) didWeatherLoadFailed:(NSError*)error;
-
-@end
-
-@interface Weather : NSObject {
-    id delegate;
-}
+@interface Weather : NSObject
 
 @property(copy) NSString* city;
 @property(copy) NSString* country;
@@ -29,12 +21,6 @@
 @property(retain) NSNumber* lon;
 
 @property(retain) NSArray* forecasts;
-
-+(Weather*)createSample;
-
--(void)loadFromFile:(NSString*)file;
--(void)setDelegate:(id)newDelegate;
--(void)loadRssFromURL:(NSURL*)url;
 
 
 @end

@@ -20,7 +20,4 @@
 -(id)initWithWeatherFromFile:(NSString*)path delegate:(id<ReadXMLDelegate>)theDelegate;
 -(id)initWithWeatherFromData:(NSData*)data delegate:(id<ReadXMLDelegate>)theDelegate;
 
-//-(Weather*)parseWeatherFromFile:(NSString*)filePath;
-//-(Weather*)parseWeatherFromData:(NSData*)data;
-
 @end

@@ -19,6 +19,4 @@
 
 @property(retain) NSMutableArray* times; // Набор Time
 
-+(Forecast*) createSample1;
-
 @end
